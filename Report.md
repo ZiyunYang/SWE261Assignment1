@@ -44,12 +44,14 @@ Questions:\
 (3). Document the existing test cases (JUnit or otherwise). This should be a study of the existing testing practices and frameworks that are used already in the system. (This section might evolve as we learn more throughout the quarter.) How do you run them?
 
 + The test cases are in the src/test folder. This project uses the JUNIT framework to test all test files. Each subfolder relates to one package in src. ./test/builds contains builder package tests.
-  Other subfolders like ./test/compare, ./test/concurrent, ./test/event, ./test/exception, ./test/function, ./test/math, ./test/mutable, ./test/reflect, ./test/stream. Other cases can be divided into these groups like ArrayUtilsTest , CharUtilsTest , ClassUtilsTest, EnumUtilsTest, RandomUtilsTest, StringUtilsTest, ThreadUtilsTest and SystemUtilsTest. These *UtilsTests correspond  to each *Utils class. The StringUtilsTest verifies many functionality on different test cases. It can be runned when clicking the Run button on IDEA or inputting the command line as below.
+  Other subfolders like ./test/compare, ./test/concurrent, ./test/event, ./test/exception, ./test/function, ./test/math, ./test/mutable, ./test/reflect, ./test/stream. Other cases can be divided into these groups like ArrayUtilsTest , CharUtilsTest , ClassUtilsTest, EnumUtilsTest, RandomUtilsTest, StringUtilsTest, ThreadUtilsTest and SystemUtilsTest. These *UtilsTests correspond  to each *Utils class. The StringUtilsTest verifies many functionality on different test cases. It can be runned when clicking the Run button on IDEA or inputting the command line as below.  
     ![image](https://github.com/ZiyunYang/SWE261Assignment1/blob/master/src/pics/pic4.png) 
     <br />
     
 + The cases can be runned by using the maven command line:  
+```xml
   mvn clean install -Drat.numUnapprovedLicenses=100  
+```
   The result is shown on the screenshot below.  
     ![image](https://github.com/ZiyunYang/SWE261Assignment1/blob/master/src/pics/pic5.png) 
     <br /> 
