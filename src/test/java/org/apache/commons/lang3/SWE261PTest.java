@@ -2,6 +2,8 @@ package org.apache.commons.lang3;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.UnsupportedEncodingException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -41,6 +43,21 @@ public class SWE261PTest {
         assertEquals("&", StringUtils.capitalize("&"));
         assertEquals("*", StringUtils.capitalize("*"));
         assertEquals("'cat'", StringUtils.capitalize("'cat'"));
+
+    }
+
+
+    @Test
+    public void testStringEncodingFirstCharacter() throws UnsupportedEncodingException {
+
+        // encoding: utf-8, gbk
+
+        assertEquals("One", StringUtils.capitalize(new String("one".getBytes("UTF-8"))), "capitalize(different-encoding) success");
+
+        assertEquals("?", StringUtils.capitalize(new String("?".getBytes("GBK"))), "capitalize(different-encoding) failed");
+
+        assertEquals("\u01C8", StringUtils.capitalize("\u01C9"), "capitalize(String) is not using TitleCase");
+
 
     }
 
