@@ -11,13 +11,13 @@ SWE 261P Part1
 public class SWE261PTest {
 
     @Test
-    public void testNullOrNot(){
+    public void testNullOrNot() {
         assertNull(StringUtils.capitalize(null));
         assertEquals("Cat", StringUtils.capitalize("cat"), "capitalize(non-null-string) failed");
     }
 
     @Test
-    public void testFirstCharacter(){
+    public void testFirstCharacter() {
         //lowercase
         assertEquals("Cat", StringUtils.capitalize("cat"));
         assertEquals("CAt", StringUtils.capitalize("cAt"));
@@ -32,7 +32,7 @@ public class SWE261PTest {
 
         //symbol: !@#$%^&*
         assertEquals("", StringUtils.capitalize(""));
-        assertEquals("!",StringUtils.capitalize("!"));
+        assertEquals("!", StringUtils.capitalize("!"));
         assertEquals("@", StringUtils.capitalize("@"));
         assertEquals("#", StringUtils.capitalize("#"));
         assertEquals("$", StringUtils.capitalize("$"));
@@ -44,5 +44,24 @@ public class SWE261PTest {
 
     }
 
+    @Test
+    public void testStringLength() {
+        // length = 0
+        String s1 = "";
+        assertEquals("", StringUtils.capitalize(s1));
+
+        // length = 10
+        String s2 = "aaaaa";
+        assertEquals("Aaaaa", StringUtils.capitalize(s2));
+
+        // length = 65534 (max string length in javac compiler)
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 65534; i++) {
+            sb.append('a');
+        }
+        String s3 = sb.toString();
+        assertEquals(65534, s3.length());
+        assertEquals("A", StringUtils.capitalize(s3).substring(0, 1));
+    }
 
 }
